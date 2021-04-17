@@ -26,6 +26,29 @@ The Douglas County Assessor Office provides text files from it's database for pu
     7) Property Values
 
 ## Data Preparation
+The data preparation code can be found in the Jupyter Notebook file:  MSDS696_Practicum2_1b_AssessorsData_Collection_EDA_Cleaning_BemissKimberly.ipynb
+
+The steps that were taken to prepare the data for the machine learning tasks were:
+
+    1) read the file into a pandas dataframe and set the headers.
+    2) review and describe the features of the dataframe.
+    3) review records for duplicates.
+    4) identify the level of granularity for each row of the dataframe
+    5) review the unique values in each column
+    6) 
+
+
+File No |           File Name         |   Rows   | Columns |        Data Types         |     Level of Granularity      |    Unique Identifiers   | Details
+--------|-----------------------------|----------|---------|---------------------------|-------------------------------|-------------------------|---------
+1       | Property_Improvement.txt    | 133,865  |   35    | 'object','float64','int64 | 1 row per property building   | Account_No, Building_ID |  - contains multiple types of property (residential, commercial, land, etc..) and built types (homes, outbuildings, etc...).- 1 property can have multiple buildings
+2       | Property_Location.txt       | 
+3       | Property_Ownership.txt      |
+4       | Property_Subdivision.txt    |
+5       | Property_Sales.txt          |
+6       | Property_Filing.txt         |
+7       | Property_Values.txt         |
+
+
 
 
 
