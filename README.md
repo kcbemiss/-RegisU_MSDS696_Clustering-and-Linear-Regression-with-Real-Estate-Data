@@ -37,7 +37,6 @@ The steps that were taken to prepare the data for the machine learning tasks wer
     5) review the unique values in each column
     6) identify the null/nan values in each column
     7) filter the data to the appropriate rows and columns
-    8) 
 
 
 File No |           File Name         |   Rows   | Columns |                  Data Types                 |       Level of Granularity        |    Unique Identifiers     | 
@@ -53,51 +52,51 @@ File No |           File Name         |   Rows   | Columns |                  Da
 ##### File Details:
 
 (1) Property_Improvement:  
-    - contains multiple types of property (residential, commercial, land, etc..) and built types (homes, outbuildings, etc...).
-    - a property can have multiple buildings (multiple rows per property)
-    - filtered to only single family residential properties.
-    - final cleaned dataframe (df_PI_sfres_det):
+    * contains multiple types of property (residential, commercial, land, etc..) and built types (homes, outbuildings, etc...).
+    * a property can have multiple buildings (multiple rows per property)
+    * filtered to only single family residential properties.
+    * final cleaned dataframe (df_PI_sfres_det):
             rows:102,136
             columns: 32
 
 (2) Property_Location:
-    - contains detailed location information (incuding address).
-    - multiple rows per account (property)
-    - create a new field for Address (combine 6 fields into 1)
-    - filered to only the residential property addresses
-    - final cleaned dataframe (df_loc_res):
+    * contains detailed location information (incuding address).
+    * multiple rows per account (property)
+    * create a new field for Address (combine 6 fields into 1)
+    * filered to only the residential property addresses
+    * final cleaned dataframe (df_loc_res):
             rows: 116,131
             columns: 22
 
 (3) Property_Ownership:
-    - contains 1 row per account with owners name and address.
-    - final dataframe (df_own) - no changes or manipulations.
+    * contains 1 row per account with owners name and address.
+    * final dataframe (df_own) - no changes or manipulations.
             rows: 156,734
             columns: 7
 
 (4) Property_Subdivision:
-    - contains the subdivision information for each account
-    - final dataframe (df_sub) - no changes or manipulations.
+    * contains the subdivision information for each account
+    * final dataframe (df_sub) - no changes or manipulations.
             rows: 152,280
             columns: 6
 
 (5) Property_Sales:
-    - contains sale information for each property
-    - pivot and summarize each sale to create 1 row per account - selecting min/max sale price, min/max sale date and the associate prices (min/max).
-    - final dataframe (df_sale_det):
+    * contains sale information for each property
+    * pivot and summarize each sale to create 1 row per account - selecting min/max sale price, min/max sale date and the associate prices (min/max).
+    * final dataframe (df_sale_det):
             rows: 139,197
             columns: 10
 
 (6) Property_Filing:
-    - contains filing (subdivision/ammendments) information for each property
-    - final dataframe (df_file) - no changes or manipulations:
+    * contains filing (subdivision/ammendments) information for each property
+    * final dataframe (df_file) - no changes or manipulations:
             rows: 4,871
             columns: 4
 
 (7) Property_Values:
-    - contains sale information for each property, 1 row per account/value code/assessed value.
-    - filter to only Valuation_Type_Code = "I" (Improvement), Account Type of Residential, Description Single Family Residential - Improvements
-    - final dataframe (df_val_res):
+    * contains sale information for each property, 1 row per account/value code/assessed value.
+    * filter to only Valuation_Type_Code = "I" (Improvement), Account Type of Residential, Description Single Family Residential - Improvements
+    * final dataframe (df_val_res):
             rows: 102,016
             columns: 9
 
