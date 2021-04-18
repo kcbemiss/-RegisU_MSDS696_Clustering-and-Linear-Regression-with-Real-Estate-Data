@@ -151,13 +151,13 @@ At the end of the Data Processsing and Exploratory Data Analysis, there are 5 da
 
 
 
-        Dataframe                  |     Rows     | Columns |        Description                |
------------------------------------|--------------|---------|--------------------------------   |
-df_properties_onehot_imputed       |    101,817   |   788   |  One Hot Encoded                  |
-df_properties_onehot_imputed_stan  |    101,817   |   788   |  One Hot Encoded - Standardized   |
-df_prop_analy_prim_imputed         |    101,817   |    25   |  Limited Features                 |
-df_prop_analy_prim_imputed_stan    |    101,817   |    25   |  Limited Features - Standardized  |
-df_prop_analy_loc_feat             |    101,817   |     4   |  Location Data                    |
+ID|      Dataframe                    |     Rows     | Columns |        Description                |
+ -|-----------------------------------|--------------|---------|--------------------------------   |
+1 |df_properties_onehot_imputed       |    101,817   |   788   |  One Hot Encoded                  |
+2 |df_properties_onehot_imputed_stan  |    101,817   |   788   |  One Hot Encoded - Standardized   |
+3 |df_prop_analy_prim_imputed         |    101,817   |    25   |  Limited Features                 |
+4 |df_prop_analy_prim_imputed_stan    |    101,817   |    25   |  Limited Features - Standardized  |
+5 |df_prop_analy_loc_feat             |    101,817   |     4   |  Location Data                    |
 
 
 ## Principal Component Analysis (PCA)
