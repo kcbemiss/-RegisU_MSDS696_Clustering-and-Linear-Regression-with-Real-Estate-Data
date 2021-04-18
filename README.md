@@ -128,7 +128,7 @@ For some of the data that was Categorical, it was encoded so that the data could
 Some of the data columns were removed (droped) as the decsion was made that they did not offer any information for our problem.
 
 ##### File Details:
-The details of the transformations for NaN values, Encoding and Removal of fields can be found in the file:  [MSDS696_Practicum2_Bemiss_EDA_Transformations.txt] MSDS696_Practicum2_Bemiss_EDA_Transformations.md
+The details of the transformations for NaN values, Encoding and Removal of fields can be found in the file: [MSDS696_Practicum2_Bemiss_EDA_Transformations.txt] (https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/MSDS696_Practicum2_Bemiss_EDA_Transformations.txt
 
 #### EDA Question 1 - How many Accounts have more than one building on the property (make up the 204 duplicate rows)?
 
