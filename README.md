@@ -133,18 +133,30 @@ The details of the transformations for NaN values, Encoding and Removal of field
 #### EDA Question 1 - How many Accounts have more than one building on the property (make up the 204 duplicate rows)?
 
 
+![MultiBuilding](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/tree/main/Images/eda_bar_multibuilding.png)
+
 #### EDA Question 2 - How many New Property Improvements (buildings) and Remodels were done each year?
 
+
+![BuildingsPerYear](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/tree/main/Images/eda_line_buildyear.png)
 
 #### EDA Question 3 - What are the top Cities, Subdivisions and Build Types for Single Family Residential Homes in Douglas County?
 
 
+![MultipleBarCharts](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/tree/main/Images/eda_bar_multibar.png)
 
+#### Dataframes for Analysis:
 
-df_properties_onehot_imputed - 101817, 788
-df_properties_onehot_imputed_stan - 101817, 788
-df_prop_analy_prim_imputed - 101817, 25
-df_prop_analy_prim_imputed_stan - 101817, 25
+At the end of the Data Processsing and Exploratory Data Analysis, there are 5 dataframes that we will use in the next steps of the project.
+
+        Dataframe                  |     Rows     | Columns |        Description
+-----------------------------------| ------------ | --------| -------------------------------|
+df_properties_onehot_imputed       |    101,817   |   788   |  One Hot Encoded               |
+df_properties_onehot_imputed_stan  |    101,817   |   788   |  One Hot Encoded - Standardized|
+df_prop_analy_prim_imputed         |    101,817   |    25   |  Limited Features              |
+df_prop_analy_prim_imputed_stan    |    101,817   |    25   |  Limited Features - Standardized|
+df_prop_analy_loc_feat             |    101,817   |     4   |  Location Data                 |
+
 
 
 
