@@ -149,13 +149,28 @@ The details of the transformations for NaN values, Encoding and Removal of field
 
 At the end of the Data Processsing and Exploratory Data Analysis, there are 5 dataframes that we will use in the next steps of the project.
 
-        Dataframe                  |     Rows     | Columns |        Description
------------------------------------| ------------ | --------| -------------------------------|
-df_properties_onehot_imputed       |    101,817   |   788   |  One Hot Encoded               |
-df_properties_onehot_imputed_stan  |    101,817   |   788   |  One Hot Encoded - Standardized|
-df_prop_analy_prim_imputed         |    101,817   |    25   |  Limited Features              |
-df_prop_analy_prim_imputed_stan    |    101,817   |    25   |  Limited Features - Standardized|
-df_prop_analy_loc_feat             |    101,817   |     4   |  Location Data                 |
+
+
+        Dataframe                  |     Rows     | Columns |        Description                |
+-----------------------------------|--------------|---------|--------------------------------   |
+df_properties_onehot_imputed       |    101,817   |   788   |  One Hot Encoded                  |
+df_properties_onehot_imputed_stan  |    101,817   |   788   |  One Hot Encoded - Standardized   |
+df_prop_analy_prim_imputed         |    101,817   |    25   |  Limited Features                 |
+df_prop_analy_prim_imputed_stan    |    101,817   |    25   |  Limited Features - Standardized  |
+df_prop_analy_loc_feat             |    101,817   |     4   |  Location Data                    |
+
+
+## Principal Component Analysis (PCA)
+
+In this project PCA is used as an Unsupervised dimensionality reduction technique.  This method allows clustering of data based on the coorelation between features.  The new features (or components) created are based on the original features.  Their importance in the dataset is given by the eigenvalues.
+These principal components are the new features based on our original features and their importance in terms of explaining the variability in the dataset is given by 
+
+
+
+
+
+
+
 
 
 
