@@ -115,29 +115,20 @@ Unique By:|  Account_No, Building_ID
 
 ## Exploratory Data Analysis (EDA)
 
-#### EDA for Nulls and NaN Values
+##### Nulls and NaN Values: (see file for details)
 
-There were a large number of Nan values for some of the columns in the data set. Some of these values could be imputed to a value that represented a lack of inforamtion. Those columns where the values could be imputed were:
+There were a large number of Nan values for some of the columns in the data set. Some of these values could be updated to a value that represented a lack of inforamtion. Others were imputed using KNNImputer.  The end result was a dataframe with no null or NaN values. 
 
-* Unit Type: "Individual"
-* Quality Code: "Not Rated"
-* Roof_Construction_Type: "Unknown"
-* Exterior_Construction: "Unknown"
-* Interior_Construction: "Unknown"
-* Condition: "Unknown"
-* HVAC: "Unknown"
-* Roof_Material_Code: "Unknown"
-* Floor_Material_Type_Code: "Unknown"
-* Remodeled Year: 0
-* Location Information - use the subdivision and other information to fill in missing data
-* Owner Information - fill missign data with "Unknown"
-* Bedrooms - imputed using KNNImputer
-* Bathrooms -  imputed using KNNImputer
-* No_of_Sales - imputed using KNNImputer
-* Sale_Price_Min - imputed using KNNImputer
-* Sale_Price_Max -  imputed using KNNImputer                
-* Sale_Price_toMin - imputed using KNNImputer          
-* Sale_Price_toMax -  imputed using KNNImputer   
+##### Encode Data: (see file for details)
+
+For some of the data that was Categorical, it was encoded so that the data could be used in the unsupervised machine learning methods.  Using One Hot Encoding, Ordinal Encoding, and Label Encoding, the categorical data was transformed to numeric.  
+
+##### Remove Fields: (see file for details)
+
+Some of the data columns were removed (droped) as the decsion was made that they did not offer any information for our problem.
+
+##### File Details:
+The details of the transformations for NaN values, Encoding and Removal of fields can be found in the file:  [MSDS696_Practicum2_Bemiss_EDA_Transformations.txt] MSDS696_Practicum2_Bemiss_EDA_Transformations.md
 
 #### EDA Question 1 - How many Accounts have more than one building on the property (make up the 204 duplicate rows)?
 
@@ -147,29 +138,6 @@ There were a large number of Nan values for some of the columns in the data set.
 
 #### EDA Question 3 - What are the top Cities, Subdivisions and Build Types for Single Family Residential Homes in Douglas County?
 
-
-#### Encode Data:
-
-For some of the data that was Categorical, it was encoded so that the data could be used in the unsupervised machine learning methods.
-
-Ordinal Encoding:
-* Quality_Code
-* Condition
-
-Label Encoded:
-* Walkout_Basement
-
-One Hot Encoded:
-* Categorical Data Fields
-
-#### Remove Fields:
-
-Some of the data columns were removed (droped) as the decsion was made that they did not offer any information for our problem.
-
-* Removed all owner columns (6)
-* Mobile Home sizes (2)
-* Removed the Date Fields (created separate data frame)(4)
-* Removed some of the features columns (created a separate data frame without)(18) - df_properties_encoded_primary
 
 
 
