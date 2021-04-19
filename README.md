@@ -7,9 +7,10 @@ Finding a homes with the features you want can be challenging, especially with a
 
 The data used for this project came from the Douglas County Assessor Office (Douglas County Assessor Office, 2021).  Seven (7) data files were downloaded from the assessors website as text files and contained both categorical and continuous data. Using unsupervised learning this project created clusters of properties with geocoded locations to identify properties and their locations with similarities over a large number of features.  PCA was used for feature reduction, and unsupervised clustering was performed using k-means, hierarchical agglomerative clustering (HCA) and Density-Based Spatial Clustering of Applications with Noise (DBSCAN) using scikit-learn libraries.  
 
-Clustering 1 - Primary DS/Primary 2000 - MSDS696_Practicum2_1c_AssessorsData_PCA_Clustering_BemissKimberly
-Clustering 2 - Primary 2000 w/o dates
-Clustering 3 - Primary filtered DS
+* Clustering 1 - Primary DS/Primary 2000 - MSDS696_Practicum2_1c_AssessorsData_PCA_Clustering_BemissKimberly
+* Clustering 2 - Primary 2000 w/o dates
+* Clustering 3 - Primary filtered DS
+* Clustering 4 - Primary filtered for Garage Size
 
 The conclusion of the project is .....................
 
@@ -119,6 +120,9 @@ Unique By:|  Account_No, Building_ID
 
 ## Exploratory Data Analysis (EDA)
 
+##### File Details:
+The details of the transformations for NaN values, Encoding and Removal of fields can be found in the file: [MSDS696_Practicum2_Bemiss_EDA_Transformations.txt] (https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/MSDS696_Practicum2_Bemiss_EDA_Transformations.txt
+
 ##### Nulls and NaN Values: (see file for details)
 
 There were a large number of Nan values for some of the columns in the data set. Some of these values could be updated to a value that represented a lack of inforamtion. Others were imputed using KNNImputer.  The end result was a dataframe with no null or NaN values. 
@@ -131,8 +135,6 @@ For some of the data that was Categorical, it was encoded so that the data could
 
 Some of the data columns were removed (droped) as the decsion was made that they did not offer any information for our problem.
 
-##### File Details:
-The details of the transformations for NaN values, Encoding and Removal of fields can be found in the file: [MSDS696_Practicum2_Bemiss_EDA_Transformations.txt] (https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/MSDS696_Practicum2_Bemiss_EDA_Transformations.txt
 
 #### EDA Question 1 - How many Accounts have more than one building on the property (make up the 204 duplicate rows)?
 
@@ -167,7 +169,7 @@ ID|      Dataframe                    |     Rows     | Columns |        Descript
 ## Principal Component Analysis (PCA)
 
 In this project PCA is used as an Unsupervised dimensionality reduction technique.  This method allows clustering of data based on the coorelation between features.  The new features (or components) created are based on the original features.  Their importance in the dataset is given by the eigenvalues.
-These principal components are the new features based on our original features and their importance in terms of explaining the variability in the dataset is given by 
+These principal components are the new features based on our original features and their importance in terms of explaining the variability in the dataset is given by the explained variation percentage.
 
 PCA was completed on 9 dataframes (onehot and primary).  This project used clustering with 6 of the dataframes.  A decsion was made to continue with the 3rd dataframe of standardized data for the first Clustering attempt.  While the K-means clustering was successful, the HCA clustering was not able to complete on my sytem due to a lack of memory.  It was necessary to decrease the amount of data I was analyzing.  One of the features in a home that my family is looking for is the Built Year being after the year 2000.  I filtered the data to properties with a built year>= 2000 and standardized the data before performing PCA (PCA_PR_2000).  The 6th through 9th dataframes were additional Clustering attempts to determine how a reduction in the features and types of features used would affect the clusters.  I did note that the standardized data produced more components than the non-standardized data.   
 
