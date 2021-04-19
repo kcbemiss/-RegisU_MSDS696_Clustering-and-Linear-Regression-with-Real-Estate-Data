@@ -7,6 +7,10 @@ Finding a homes with the features you want can be challenging, especially with a
 
 The data used for this project came from the Douglas County Assessor Office (Douglas County Assessor Office, 2021).  Seven (7) data files were downloaded from the assessors website as text files and contained both categorical and continuous data. Using unsupervised learning this project created clusters of properties with geocoded locations to identify properties and their locations with similarities over a large number of features.  PCA was used for feature reduction, and unsupervised clustering was performed using k-means, hierarchical agglomerative clustering (HCA) and Density-Based Spatial Clustering of Applications with Noise (DBSCAN) using scikit-learn libraries.  
 
+Clustering 1 - Primary DS/Primary 2000 - MSDS696_Practicum2_1c_AssessorsData_PCA_Clustering_BemissKimberly
+Clustering 2 - Primary 2000 w/o dates
+Clustering 3 - Primary filtered DS
+
 The conclusion of the project is .....................
 
 PICTURE:   ![Tree_DT](https://github.com/kcbemiss/PredictingHospitalClaimDenials/blob/main/Images/Tree_dtc.svg)
@@ -133,17 +137,17 @@ The details of the transformations for NaN values, Encoding and Removal of field
 #### EDA Question 1 - How many Accounts have more than one building on the property (make up the 204 duplicate rows)?
 
 
-![MultiBuilding](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/tree/main/Images/eda_bar_multibuilding.png)
+![MultiBuilding](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/eda_bar_multibuilding.png)
 
 #### EDA Question 2 - How many New Property Improvements (buildings) and Remodels were done each year?
 
 
-![BuildingsPerYear](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/tree/main/Images/eda_line_buildyear.png)
+![BuildingsPerYear](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/eda_line_buildyear.png)
 
 #### EDA Question 3 - What are the top Cities, Subdivisions and Build Types for Single Family Residential Homes in Douglas County?
 
 
-![MultipleBarCharts](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/tree/main/Images/eda_bar_multibar.png)
+![MultipleBarCharts](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/eda_bar_multibar.png)
 
 #### Dataframes for Analysis:
 
@@ -165,15 +169,65 @@ ID|      Dataframe                    |     Rows     | Columns |        Descript
 In this project PCA is used as an Unsupervised dimensionality reduction technique.  This method allows clustering of data based on the coorelation between features.  The new features (or components) created are based on the original features.  Their importance in the dataset is given by the eigenvalues.
 These principal components are the new features based on our original features and their importance in terms of explaining the variability in the dataset is given by 
 
+PCA was completed on 7 dataframes (onehot and primary).  This project used clustering with 4 of the dataframes.  A decsion was made to continue with the 3rd dataframe of standardized data for the first Clustering attempt.  While the K-means clustering was successful, the HCA clustering was not able to complete on my sytem due to a lack of memory.  It was necessary to decrease the amount of data I was analyzing.  One of the features in a home that my family is looking for is the Built Year being after the year 2000.  I filtered the data to properties with a built year>= 2000 and standardized the data before performing PCA (PCA_PR_2000).  The 6th and 7th dataframes were additional Clustering attempts to determine how a reduction in the features and types of features used would affect the clusters.  I did not that the standardized data produced more components than the non-standardized data.   
+
+DF # | Dataframe                         |   PCA Data     |    PCA DF   | # of Components | % Variability  |
+-----|-----------------------------------|----------------|-------------|-----------------|----------------|
+1    | df_properties_onehot_imputed_stan |  Cluster_df    | PCA_OH_ST   |   508           | 85%            |
+2    | df_properties_onehot_imputed      |  Cluster_df2   | PCA_OH      |     6           | 99%            |
+3    | df_prop_analy_prim_imputed_stan * |  Cluster_df3   | PCA_PR_ST   |    12           | 85%            |
+4    | df_prop_analy_prim_imputed        |  Cluster_df4   | PCA_PR      |     6           | 99%            |
+5    | df_prop_analy_prim_imputed **     |  Cluster_df5   | PCA_PR_2000 |    11           | 85%            |
+6    |
+7    |
+
+( * - dataframe with K-Means performed only, ** - dataframe with all clustering techinques performed, ***, ****).
+
+The graph below is the Explained Variance Plot for the Primary Features data filtered to the build year 2000 or greater (PCA_PR_2000).  This plot shows the optimal number of components, where the % variability is greater than (>) 85%.
+
+![PCA_Explained Variance_Plots](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/PCA_PR_2000_ExplainedVariance.png)
 
 
+The pairs plot below shows the 11 components graphed against eachother.  There are no readily noticable clusters, but there are quite a few linear relationships that were noted.
+
+![PCA_Pair_Plots](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/PCA_Pair_PR_2000_ST_11.png)
 
 
+The next visaluzation was a HEAT map to view the components against the features, and to identify which features had the most impact on each of the PCA Components. Below are listed the features that had the most impact on the PCA components. 
+* Built_As_Code
+* No_of_Story
+* No_of_Bedrooms
+* No_of_Bathrooms
+* Built_Year
+* No_of_Fireplaces
+* Total_Garage_SF
+* Total_Porch_SF
+* Total_Finished_Basement_SF
+* Built_as_SF
+* Actual_Value
+* Assessed_Value
+* No_of_Sales
+* Total_Net_Acres
+* Total_Unfinished_Basement_SF
+* Quality_ord
+* Condition_ord
+
+![PCA_HeatMaps_Plots](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/PCA_Heat_PR_2000_ST_12_1.png)
+
+![PCA_HeatMaps_Plots](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/PCA_Heat_PR_2000_ST_12_2.png)
+
+![PCA_HeatMaps_Plots](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/PCA_Heat_PR_2000_ST_12_3.png)
+
+![PCA_HeatMaps_Plots](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/PCA_Heat_PR_2000_ST_12_4.png)
+
+## Unsupervised Clustering
+ 
+ Ran on the full dataset and found that my memory wouldn't handle the amount of data for HCA.  Filtered the dataset to the year 2000.
+
+### K-Means
 
 
-
-
-
+#### Performance Evaluation
 
 ## Reference
 
