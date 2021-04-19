@@ -169,19 +169,20 @@ ID|      Dataframe                    |     Rows     | Columns |        Descript
 In this project PCA is used as an Unsupervised dimensionality reduction technique.  This method allows clustering of data based on the coorelation between features.  The new features (or components) created are based on the original features.  Their importance in the dataset is given by the eigenvalues.
 These principal components are the new features based on our original features and their importance in terms of explaining the variability in the dataset is given by 
 
-PCA was completed on 7 dataframes (onehot and primary).  This project used clustering with 4 of the dataframes.  A decsion was made to continue with the 3rd dataframe of standardized data for the first Clustering attempt.  While the K-means clustering was successful, the HCA clustering was not able to complete on my sytem due to a lack of memory.  It was necessary to decrease the amount of data I was analyzing.  One of the features in a home that my family is looking for is the Built Year being after the year 2000.  I filtered the data to properties with a built year>= 2000 and standardized the data before performing PCA (PCA_PR_2000).  The 6th and 7th dataframes were additional Clustering attempts to determine how a reduction in the features and types of features used would affect the clusters.  I did not that the standardized data produced more components than the non-standardized data.   
+PCA was completed on 8 dataframes (onehot and primary).  This project used clustering with 5 of the dataframes.  A decsion was made to continue with the 3rd dataframe of standardized data for the first Clustering attempt.  While the K-means clustering was successful, the HCA clustering was not able to complete on my sytem due to a lack of memory.  It was necessary to decrease the amount of data I was analyzing.  One of the features in a home that my family is looking for is the Built Year being after the year 2000.  I filtered the data to properties with a built year>= 2000 and standardized the data before performing PCA (PCA_PR_2000).  The 6th and 7th dataframes were additional Clustering attempts to determine how a reduction in the features and types of features used would affect the clusters.  I did not that the standardized data produced more components than the non-standardized data.   
 
-DF # | Dataframe                         |   PCA Data     |    PCA DF   | # of Components | % Variability  |
------|-----------------------------------|----------------|-------------|-----------------|----------------|
-1    | df_properties_onehot_imputed_stan |  Cluster_df    | PCA_OH_ST   |   508           | 85%            |
-2    | df_properties_onehot_imputed      |  Cluster_df2   | PCA_OH      |     6           | 99%            |
-3    | df_prop_analy_prim_imputed_stan * |  Cluster_df3   | PCA_PR_ST   |    12           | 85%            |
-4    | df_prop_analy_prim_imputed        |  Cluster_df4   | PCA_PR      |     6           | 99%            |
-5    | df_prop_analy_prim_imputed **     |  Cluster_df5   | PCA_PR_2000 |    11           | 85%            |
-6    |
-7    |
+DF # | Dataframe                         |   PCA Data       |    PCA DF   | # of Components | % Variability  | Details                       |
+-----|-----------------------------------|------------------|-------------|-----------------|----------------|-------------------------------|
+1    | df_properties_onehot_imputed_stan |  Cluster_df      | PCA_OH_ST   |   508           | 85%            | Original                      |
+2    | df_properties_onehot_imputed      |  Cluster_df2     | PCA_OH      |     6           | 99%            | Original                      |
+3    | df_prop_analy_prim_imputed_stan * |  Cluster_df3     | PCA_PR_ST   |    12           | 85%            | Original                      |
+4    | df_prop_analy_prim_imputed        |  Cluster_df4     | PCA_PR      |     6           | 99%            | Original                      |
+5    | df_prop_analy_prim_imputed *      |  Cluster_df5     | PCA_PR_2000 |    11           | 85%            | Original Filtered - 2000      |
+6    |df_prop_analy_prim_imputed *       |  Cluster_df3     | PCA_PR_ST   |    10           | 86%            | No Sales features             | 
+7    |df_prop_analy_prim_imputed *       |  Cluster_df5     | PCA_PR_2000 |     9           | 86%            | No Sales features - 2000      |
+8    |df_prop_analy_prim_imputed *       |  Cluster_df      | PCA_PR      |     4           | 87%            | Features Filtered (8) - 2000  |
 
-( * - dataframe with K-Means performed only, ** - dataframe with all clustering techinques performed, ***, ****).
+( * - dataframe with K-Means performed only, ** - dataframe with all clustering techinques performed, ***, ****, *****).
 
 The graph below is the Explained Variance Plot for the Primary Features data filtered to the build year 2000 or greater (PCA_PR_2000).  This plot shows the optimal number of components, where the % variability is greater than (>) 85%.
 
@@ -196,21 +197,21 @@ The pairs plot below shows the 11 components graphed against eachother.  There a
 The next visaluzation was a HEAT map to view the components against the features, and to identify which features had the most impact on each of the PCA Components. Below are listed the features that had the most impact on the PCA components. 
 * Built_As_Code
 * No_of_Story
-* No_of_Bedrooms
-* No_of_Bathrooms
+* No_of_Bedrooms*
+* No_of_Bathrooms*
 * Built_Year
 * No_of_Fireplaces
-* Total_Garage_SF
+* Total_Garage_SF*
 * Total_Porch_SF
-* Total_Finished_Basement_SF
-* Built_as_SF
-* Actual_Value
+* Total_Finished_Basement_SF*
+* Built_as_SF*
+* Actual_Value*
 * Assessed_Value
 * No_of_Sales
 * Total_Net_Acres
 * Total_Unfinished_Basement_SF
-* Quality_ord
-* Condition_ord
+* Quality_ord*
+* Condition_ord*
 
 ![PCA_HeatMaps_Plots](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/PCA_Heat_PR_2000_ST_12_1.png)
 
@@ -224,10 +225,40 @@ The next visaluzation was a HEAT map to view the components against the features
  
  Ran on the full dataset and found that my memory wouldn't handle the amount of data for HCA.  Filtered the dataset to the year 2000.
 
-### K-Means
+### K-Means Clustering
 
+#### Determine the "n" # of clusters (Elbow Method and Kneed Library)
+
+#### K-Means Clustering (sklearn)
+
+#### Visualize the clusters
+
+#### Visualize the clusters individually
 
 #### Performance Evaluation
+
+### Hierarchical Agglomarative Clustering (HCA)
+
+### DBSCAN
+
+### Choosing a Clustering Method
+
+
+## Using K-Means Clustering - Additional Feature Configurations
+
+
+## Multi-Linear Regression
+
+
+## Geo-Coding and Mapping Property Clusters
+
+
+## Conclusions and Findings
+
+
+
+
+
 
 ## Reference
 
