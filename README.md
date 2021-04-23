@@ -1,5 +1,6 @@
 # Regis Data Science Practicum II (MSDS696): Clustering and Linear Regression with Real Estate Data
-Practicum Project for Masters in Data Science Degree at Regis University.  Using County Assessors Data to apply Unsupervised Learning Clustering Algorithms and Linear Regression 
+
+![ClusterMap](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/SFR_Cluster_Map1.jpg)
 
 ## Abstract
 
@@ -13,10 +14,6 @@ The data used for this project came from the Douglas County Assessor Office (Dou
 * Clustering 4 - Primary filtered for Garage Size
 
 The conclusion of the project is .....................
-
-![ClusterMap](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/SFR_Cluster_Map1.jpg)
-
-
 
 ## Data Source
 
@@ -123,11 +120,11 @@ Unique By:|  Account_No, Building_ID
 ## Exploratory Data Analysis (EDA)
 
 ##### File Details:
-The details of the transformations for NaN values, Encoding and Removal of fields can be found in the file: [MSDS696_Practicum2_Bemiss_EDA_Transformations.txt] (https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/MSDS696_Practicum2_Bemiss_EDA_Transformations.txt)
+The details of the transformations for NaN values, Encoding and Removal of fields can be found in the file: MSDS696_Practicum2_Bemiss_EDA_Transformations.txt https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/MSDS696_Practicum2_Bemiss_EDA_Transformations.txt
 
 ##### Nulls and NaN Values: (see file for details)
 
-There were a large number of Nan values for some of the columns in the data set. Some of these values could be updated to a value that represented a lack of inforamtion. Others were imputed using KNNImputer.  The end result was a dataframe with no null or NaN values. 
+There were a large number of Nan values for some of the columns in the data set. Some of these values could be updated to a value that represented a lack of information. Others were imputed using KNNImputer.  The end result was a dataframe with no null or NaN values. 
 
 ##### Encode Data: (see file for details)
 
@@ -138,26 +135,30 @@ For some of the data that was Categorical, it was encoded so that the data could
 Some of the data columns were removed (droped) as the decsion was made that they did not offer any information for our problem.
 
 
-#### EDA Question 1 - How many Accounts have more than one building on the property (make up the 204 duplicate rows)?
+#### EDA Question 1 - How many Accounts have more than one building on the property?
 
+193 Properties (accounts) have more than one building on the property.
 
 ![MultiBuilding](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/eda_bar_multibuilding.png)
 
 #### EDA Question 2 - How many New Property Improvements (buildings) and Remodels were done each year?
 
-
+The number of new bulidings in Douglas County started to grow around 1970 and peaked in the Year 2000 with over 5220 new property improvements.
 ![BuildingsPerYear](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/eda_line_buildyear.png)
 
 #### EDA Question 3 - What are the top Cities, Subdivisions and Build Types for Single Family Residential Homes in Douglas County?
 
+Top Cities for properties:  Parker, Highlands Ranch, Castle Rock
 
+Top Subdivisions for properties:  Highlands Ranch, The Meadows, Stonegate
+
+Top Build Types for properties:  2 Story, 1 Story Ranch, Bi-Level
 ![MultipleBarCharts](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/eda_bar_multibar.png)
+
 
 #### Dataframes for Analysis:
 
 At the end of the Data Processsing and Exploratory Data Analysis, there are 5 dataframes that we will use in the next steps of the project.
-
-
 
 ID|      Dataframe                    |     Rows     | Columns |        Description                |
  -|-----------------------------------|--------------|---------|--------------------------------   |
@@ -171,9 +172,9 @@ ID|      Dataframe                    |     Rows     | Columns |        Descript
 ## Principal Component Analysis (PCA)
 
 In this project PCA is used as an Unsupervised dimensionality reduction technique.  This method allows clustering of data based on the coorelation between features.  The new features (or components) created are based on the original features.  Their importance in the dataset is given by the eigenvalues.
-These principal components are the new features based on our original features and their importance in terms of explaining the variability in the dataset is given by the explained variation percentage.
+These principal components are based on our original features and their importance in terms of explaining the variability in the dataset is given by the explained variation percentage.
 
-PCA was completed on 9 dataframes (onehot and primary).  This project used clustering with 6 of the dataframes.  A decsion was made to continue with the 3rd dataframe of standardized data for the first Clustering attempt.  While the K-means clustering was successful, the HCA clustering was not able to complete on my sytem due to a lack of memory.  It was necessary to decrease the amount of data I was analyzing.  One of the features in a home that my family is looking for is the Built Year being after the year 2000.  I filtered the data to properties with a built year>= 2000 and standardized the data before performing PCA (PCA_PR_2000).  The 6th through 9th dataframes were additional Clustering attempts to determine how a reduction in the features and types of features used would affect the clusters.  I did note that the standardized data produced more components than the non-standardized data.   
+PCA was performed on 7 dataframes (onehot and primary).  This project used clustering with 6 of the dataframes.  A decsion was made to continue with the 3rd dataframe of standardized data for the first Clustering attempt.  While the K-means clustering was successful, the HCA clustering was not able to complete on my sytem due to a lack of memory.  It was necessary to decrease the amount of data I was analyzing.  
 
 DF # | Dataframe                         |   PCA Data       |    PCA DF   | # of Components | % Variability  | Details                       |
 -----|-----------------------------------|------------------|-------------|-----------------|----------------|-------------------------------|
@@ -182,13 +183,16 @@ DF # | Dataframe                         |   PCA Data       |    PCA DF   | # of
 3    | df_prop_analy_prim_imputed_stan * |  Cluster_df3     | PCA_PR_ST   |    12           | 85%            | Original                      |
 4    | df_prop_analy_prim_imputed        |  Cluster_df4     | PCA_PR      |     6           | 99%            | Original                      |
 
+![EVP1](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/PCA_ExplainedVariance.JPG)
 
-DF # | Dataframe                         |   PCA Data       |    PCA DF   | # of Components | % Variability  | Details                       |
-5    | df_prop_analy_prim_imputed *      |  Cluster_df5     | PCA_PR_2000 |    11           | 85%            | Original Filtered - 2000      |
-6    |df_prop_analy_prim_imputed *       |  Cluster_df3     | PCA_PR_ST   |    10           | 86%            | No Sales features             | 
-7    |df_prop_analy_prim_imputed *       |  Cluster_df5     | PCA_PR_2000 |     9           | 86%            | No Sales features - 2000      |
-8    |df_prop_analy_prim_imputed *       |  Cluster_df      | PCA_PR      |     4           | 87%            | Features Filtered (8) - 2000  |
-9    |df_prop_analy_prim_imputed *       |  Cluster_d       | PCA_PR      |     3           | 88%            | Features Filtered (6) - 2000  |
+
+One of the features in a home that my family is looking for is the Built Year being after the year 2000.  I filtered the data to properties with a built year>= 2000 and standardized the data before performing PCA (PCA_PR_2000).  The 6th and 7th dataframes were additional runs of the clustering algorithim to determine how a reduction in the features and types of features used would affect the clusters.  I did note that the standardized data produced more components than the non-standardized data.   
+
+DF # | Dataframe                          |   PCA Data       |    PCA DF   | # of Components | % Variability  | Details                       |
+-----|-----------------------------------|------------------|-------------|-----------------|----------------|-------------------------------|
+5    | df_prop_analy_prim_imputed *       |  Cluster_df5     | PCA_PR_2000 |    11           | 85%            | Original Filtered - 2000      |
+6    | df_prop_analy_prim_imputed *       |  Cluster_df      | PCA_PR_2000 |     4           | 87%            | Features Filtered (8) - 2000  |
+7    | df_prop_analy_prim_imputed *       |  Cluster_df      | PCA_PR_2000 |     3           | 88%            | Features Filtered (6) - 2000  |
 
 ( * - dataframe with clustering techinques performed).
 
