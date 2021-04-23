@@ -189,10 +189,10 @@ DF # | Dataframe                         |   PCA Data       |    PCA DF   | # of
 One of the features in a home that my family is looking for is the Built Year being after the year 2000.  I filtered the data to properties with a built year>= 2000 and standardized the data before performing PCA (PCA_PR_2000).  The 6th and 7th dataframes were additional runs of the clustering algorithim to determine how a reduction in the features and types of features used would affect the clusters.  I did note that the standardized data produced more components than the non-standardized data.   
 
 DF # | Dataframe                          |   PCA Data       |    PCA DF   | # of Components | % Variability  | Details                       |
------|-----------------------------------|------------------|-------------|-----------------|----------------|-------------------------------|
+-----|------------------------------------|------------------|-------------|-----------------|----------------|-------------------------------|
 5    | df_prop_analy_prim_imputed *       |  Cluster_df5     | PCA_PR_2000 |    11           | 85%            | Original Filtered - 2000      |
-6    | df_prop_analy_prim_imputed *       |  Cluster_df      | PCA_PR_2000 |     4           | 87%            | Features Filtered (8) - 2000  |
-7    | df_prop_analy_prim_imputed *       |  Cluster_df      | PCA_PR_2000 |     3           | 88%            | Features Filtered (6) - 2000  |
+6    | df_prop_analy_prim_imputed *       |  Cluster_df      | PCA_PR      |     4           | 87%            | Features Filtered (8) - 2000  |
+7    | df_prop_analy_prim_imputed *       |  Cluster_df      | PCA_PR      |     3           | 88%            | Features Filtered (6) - 2000  |
 
 ( * - dataframe with clustering techinques performed).
 
@@ -203,8 +203,11 @@ The graph below is the Explained Variance Plot for the Primary Features data fil
 
 The pairs plot below shows the 11 components graphed against eachother.  There are no readily noticable clusters, but there are quite a few linear relationships that were noted.
 
+###### Pair Plot for PCA Components: Primary (PR) Data
 ![PCA_Pair_Plots](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/PCA_Pair_PR_2000_ST_11.png)
 
+
+###### Heat Maps:  PCA Components to Primary (PR) Data features
 
 The next visaluzation was a HEAT map to view the components against the features, and to identify which features had the most impact on each of the PCA Components. Below are listed the features that had the most impact on the PCA components. 
 * Built_As_Code
@@ -225,9 +228,15 @@ The next visaluzation was a HEAT map to view the components against the features
 * Quality_ord*
 * Condition_ord*
 
+**PCA Components 1 through 5 to Primary (PR) Data features**
+
 ![PCA_HeatMaps_Plots](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/PCA_Heat_PR_2000_ST_12_1.png)
 
+**PCA Components 6 through 10 to Primary (PR) Data features**
+
 ![PCA_HeatMaps_Plots](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/PCA_Heat_PR_2000_ST_12_2.png)
+
+**PCA Components 11 through 12 to Primary (PR) Data features**
 
 ![PCA_HeatMaps_Plots](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/PCA_Heat_PR_2000_ST_12_3.png)
 
