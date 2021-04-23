@@ -14,7 +14,9 @@ The data used for this project came from the Douglas County Assessor Office (Dou
 
 The conclusion of the project is .....................
 
-PICTURE:   ![Tree_DT](https://github.com/kcbemiss/PredictingHospitalClaimDenials/blob/main/Images/Tree_dtc.svg)
+![ClusterMap](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/SFR_Cluster_Map1.jpg)
+
+
 
 ## Data Source
 
@@ -121,7 +123,7 @@ Unique By:|  Account_No, Building_ID
 ## Exploratory Data Analysis (EDA)
 
 ##### File Details:
-The details of the transformations for NaN values, Encoding and Removal of fields can be found in the file: [MSDS696_Practicum2_Bemiss_EDA_Transformations.txt] (https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/MSDS696_Practicum2_Bemiss_EDA_Transformations.txt
+The details of the transformations for NaN values, Encoding and Removal of fields can be found in the file: [MSDS696_Practicum2_Bemiss_EDA_Transformations.txt] (https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/MSDS696_Practicum2_Bemiss_EDA_Transformations.txt)
 
 ##### Nulls and NaN Values: (see file for details)
 
