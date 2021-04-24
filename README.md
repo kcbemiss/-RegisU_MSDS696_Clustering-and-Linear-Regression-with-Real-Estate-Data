@@ -310,6 +310,35 @@ The Davies-Bouldin performance score is 1.1277, and the lower the value the bett
 
 ### Hierarchical Agglomarative Clustering (HCA)
 
+This method of clustering iterates through data points, merging data points with clusters until one cluster is formed.  Using a dendrogram (linkage, ward method) the optimal number of clusters is identified.  Using sklearn's AgglomorativeClustering algorithm with the identified number of clusters, 4 clusters are produced usin ward method and euclidean affinity.
+
+#### Dendrogram - identify 4 clusters
+
+The dendrogram clearly shows 4 clusters - identified in color but also by the height of the branches of the tree.
+
+![HACDend](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/HAC_n_Hist_Pr2000.png)
+
+
+#### Visualize Clusters
+
+The clusters are not separated or delineated and overlap greatly, similar to the K-Means Clustering method.  In the first visualization you can see the 4 individual groupings in the large "blob" of data points.  There is some delineation of the points into clusters (especially cluster 4), but you can also see the overlap between the clusters. The second visualization, the truncated dendrogram of the 4 clusters is another method to visualize clusters from HAC. 
+
+![HACscat](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/HCA_Clustering2_Comp1_Comp2_11.png)
+
+
+![HACTree](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/HCA_Dendrogram_11.png)
+
+#### Performance Evaluation
+
+The HAC algorithim had a Silouhette Coefficient performance score of 0.245982 is closer to 0 than to 1.  It is closer to 1 than K-Means showing the 4 clusters are better distinguished.
+
+The Calinski-Harabasz performance score is 6964.999812.  This score is smaller than K-means, indicating the K-Means algorithm performed better.
+
+The Davies-Bouldin performance score is 1.625696, and is larger than K-means.  This indicates the K-Means algorithm performed better.  
+
+![HCAPerf1](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/HCA_PerfEval_PCA_PR_2000_1.JPG)
+
+
 ### DBSCAN
 
 ### Choosing a Clustering Method
