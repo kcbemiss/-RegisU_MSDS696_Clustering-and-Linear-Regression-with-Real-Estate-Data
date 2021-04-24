@@ -9,9 +9,7 @@ Finding a homes with the features you want can be challenging, especially with a
 The data used for this project came from the Douglas County Assessor Office (Douglas County Assessor Office, 2021).  Seven (7) data files were downloaded from the assessors website as text files and contained both categorical and continuous data. Using unsupervised learning this project created clusters of properties with geocoded locations to identify properties and their locations with similarities over a large number of features.  PCA was used for feature reduction, and unsupervised clustering was performed using k-means, hierarchical agglomerative clustering (HCA) and Density-Based Spatial Clustering of Applications with Noise (DBSCAN) using scikit-learn libraries.  
 
 * Clustering 1 - Primary DS/Primary 2000 - MSDS696_Practicum2_1c_AssessorsData_PCA_Clustering_BemissKimberly
-* Clustering 2 - Primary 2000 w/o dates
-* Clustering 3 - Primary filtered DS
-* Clustering 4 - Primary filtered for Garage Size
+* Clustering 2 - Primary filtered for Garage Size
 
 The conclusion of the project is .....................
 
@@ -278,7 +276,7 @@ The objective of K-means clustering is to group similar data points together to 
 #### Determine the "n" # of clusters (Elbow Method and Kneed Library)
 Using the Elbow method of identifying "n", and the kneed library in python, I choose an "n" # of clusters of 8 for the K-Means algorithim.
 
-![KMeans_Elbow1](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/PCA_Heat_PR_2000_ST_12_4.png)KMeans_Elbow_Clustering_PR2000_1.png
+![KMeans_Elbow1](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/KMeans_Elbow_Clustering_PR2000_1.png)
 
 #### K-Means Clustering (sklearn)
 
