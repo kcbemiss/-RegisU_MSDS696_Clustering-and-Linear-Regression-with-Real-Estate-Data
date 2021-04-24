@@ -339,7 +339,48 @@ The Davies-Bouldin performance score is 1.625696, and is larger than K-means.  T
 
 ### DBSCAN
 
+DBSCAN (Density-Based Spatial Clustering of Applications with Noise) is a method of clustering that can create clusters of arbitrary shapes and verying densities.  It is also a robust method for data with outliers, and doesn't require a number of clsuters specificed beforehand.   It requires 2 parameters, epsilon and minPoints.
+
+* Epsilon:  "the radius of the circle to be created around each data point to check the density." (analyticsvihya.com)
+* minPoints: "the minimum number of data points required inside that circle for that data point to be classified as a Core point." (analyticsvihya.com)
+
+#### 1st Attempt:   eps = 0.5 and min_samples = 25
+
+The first attempt at DBSCAN resulted in 43 clusters.  min_samles was set at 25 (11 dimensions x2 + 3) using a recommended method from Analytics Vidhya.  This first attemp was not a great result.  
+
+![DBSCAN1](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/DBSCAN_scatter_1.png)
+
+
+Using KNN and a K-Distance Graph, the algorithim was tuned to the right Epsilon. An Epsilon value of 2 was identified from the graph.
+
+![KNNGraph](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/K_DistanceGraph.png)
+
+
+#### 2nd Attempt:   eps = 2 and min_samples = 25
+
+The second attempt using an epsilon value of 2 identified from the K-Distance graph.  The second attempt was much better, Identifying 8 clusters.  More of the 8 clusters are disperse and have few points, with only 2 having any density.
+
+![DBSCAN2](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/DBSCAN_scatter_2.png)
+
+![DBSCAN_all](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/PR_2000_Indv_Clusters_DBSCAN.jpg)
+
+
 ### Choosing a Clustering Method
+
+The performance metrics evaluate the comparative performance of models against each other, because we are doing unsupervised clustering and do not have a target variable.
+
+ Silhouette:  Closer to 1 the better
+     - Best Method:  DBSCAN_PCA 
+
+ Calinski-Harabasz:  The larger the score the better
+     - Best Method: K-Means_PCA
+
+ Davies-Bouldin:  The lower the score the better
+     - Best MEthod:  K-Means_PCA
+The DBSCAN and the K-Means Clustering Algorithims both identified 8 Clusters. The K-Means Algorithm has the best performance score for for 2 of the 3 methods used, so I am going to choose that method to continue my Analysis and to peform some further clustering analysis based on specific features.
+
+![MethodCompare](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/PerformanceEval_all_PR2000.JPG)
+
 
 
 ## Using K-Means Clustering - Additional Feature Configurations
