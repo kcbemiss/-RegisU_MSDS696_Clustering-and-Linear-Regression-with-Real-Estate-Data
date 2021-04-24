@@ -421,13 +421,67 @@ Davies-Bouldin:  The lower the score the better
 ![smkmeanscl](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/small_clusterplot.png)
 
 
-#### Finding Homes with Big Garages
+## Finding Homes with Big Garages
 
+One of the goals of the project was to use publicly available assessor's data and data from an online real estate site to identify properties that met specific home feature criteria. The clustering method (K-Means) has been identified with the specific home features.  One of the specific features we are looking for is homes with greatr than (>) 690 square feet.  Using the methodoogy and K-Means algorithm that have been identified to this point, a data set of properties with garage square footage greater than or equal to 690 sqft was analyzed to identify cluters of properties using the set of features identified.  
 
-## Multi-Linear Regression
+Data:  Properties built 2000 and later with garage sqft >= 690, standardized.
+* Columns:  9
+* Rows: 15815
+
+List of features:
+* Total_Garage_SF
+* Total_Finished_Basement_SF
+* Built_as_SF
+* No_of_Bedrooms
+* No_of_Bathrooms
+* Total_Net_Acres
+* Quality_ord
+* Condition_ord
+* Actual_Value
+
+PCA of the data produced 9 components with explained variation 
+
+Explained variation per principal component: 
+* Component 1: 0.37075446 
+* Component 2: 0.23364882
+* Component 3: 0.11335468
+* Component 4: 0.10306531
+* Component 5: 0.06378425
+* Component 6: 0.04751985
+* Component 7: 0.02676451
+* Component 8: 0.02291783
+* Component 9: 0.01819028
+
+![expvargrg](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/garage_expvar.png)
+
+###### Heat map of how component are influenced by each feature
+
+![grgheat](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/garagesf_heatmap.png)
+
+##### K-Means Unsupervised Clustering
+
+Using the elbow method - the "n" # of clusters was identified at 5.
+
+![grgelbow](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/garagf_elbowmethod.png)
+
+The K-Means algorithm (from sklearn) was applied witwh an n = 5 through 12 iterations. The clusters have dense centers with some dispersion around the edges and overlap eachother.
+
+![grgcluster](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/Garage_Clusters.jpg)
+
+The Performance measures of the clustering algorithm were in line with the other clustering sesions (with slight improvement).
+
+![grgperfeval](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/GaragePerfEval.JPG)
+
+The individual plots of the clusters help to visualize where each cluster shares space (overlaps) and where they are individual (unique space).
+
+![grgindivclust](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/garage_clusters_indiv.jpg)
 
 
 ## Geo-Coding and Mapping Property Clusters
+
+
+## Multi-Linear Regression
 
 
 ## Conclusions and Findings
