@@ -196,67 +196,117 @@ DF # | Dataframe                          |   PCA Data       |    PCA DF   | # o
 
 ( * - dataframe with clustering techinques performed).
 
+### PCA Analysis for Single Family Residential Properties - Built in or after 2000
 The graph below is the Explained Variance Plot for the Primary Features data filtered to the build year 2000 or greater (PCA_PR_2000).  This plot shows the optimal number of components, where the % variability is greater than (>) 85%.
 
 ![PCA_Explained Variance_Plots](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/PCA_PR_2000_ExplainedVariance.png)
 
-
+##### Pair Plot for PCA Components: Primary (PR) Data
 The pairs plot below shows the 11 components graphed against eachother.  There are no readily noticable clusters, but there are quite a few linear relationships that were noted.
 
-###### Pair Plot for PCA Components: Primary (PR) Data
 ![PCA_Pair_Plots](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/PCA_Pair_PR_2000_ST_11.png)
 
-
-###### Heat Maps:  PCA Components to Primary (PR) Data features
+##### Heat Maps:  PCA Components to Primary (PR) Data features
 
 The next visaluzation was a HEAT map to view the components against the features, and to identify which features had the most impact on each of the PCA Components. Below are listed the features that had the most impact on the PCA components. 
 * Built_As_Code
-* No_of_Story
-* No_of_Bedrooms*
-* No_of_Bathrooms*
-* Built_Year
 * No_of_Fireplaces
 * Total_Garage_SF*
 * Total_Porch_SF
 * Total_Finished_Basement_SF*
+* Total_Unfinished_Basement_SF
 * Built_as_SF*
+* No_of_Story
+* No_of_Bedrooms*
+* No_of_Bathrooms*
+* Built_Year
+* Total_Net_Acres
 * Actual_Value*
 * Assessed_Value
 * No_of_Sales
-* Total_Net_Acres
-* Total_Unfinished_Basement_SF
 * Quality_ord*
 * Condition_ord*
 
-**PCA Components 1 through 5 to Primary (PR) Data features**
+**PCA Components 1 through 5 to Primary (PR_2000) Data features**
 
 ![PCA_HeatMaps_Plots](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/PCA_Heat_PR_2000_ST_12_1.png)
 
-**PCA Components 6 through 10 to Primary (PR) Data features**
+**PCA Components 6 through 11 to Primary (PR_2000) Data features**
 
 ![PCA_HeatMaps_Plots](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/PCA_Heat_PR_2000_ST_12_2.png)
 
-**PCA Components 11 through 12 to Primary (PR) Data features**
+**PCA Components 1 through 5 to Primary (PR_2000) Data features**
 
 ![PCA_HeatMaps_Plots](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/PCA_Heat_PR_2000_ST_12_3.png)
 
+**PCA Components 6 through 11 to Primary (PR_2000) Data features**
+
 ![PCA_HeatMaps_Plots](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/PCA_Heat_PR_2000_ST_12_4.png)
+
 
 ## Unsupervised Clustering
  
- Ran on the full dataset and found that my memory wouldn't handle the amount of data for HCA.  Filtered the dataset to the year 2000.
+The clustering analysis is performed on the filtered data for the built year 2000, as presented above in the PCA analysis. Three different clustering methods were performed and compared using three different performance metrics to identify the best method.
+
+##### Clustering Methods:
+* K-Means 
+* HCA - hierarchical
+* DBSCAN
+
+##### Performance Evaluation Methods
+
+***The Silhouette Coefficient***
+
+I do not have ground truth labels (are not known), and this method can be used for clustering without ground truth labels. A higher Silhouette Coefficient score identifies a model with better defined clusters.
+
+    - Close to -1:incorrect clustering
+    - Close to 0: overlapping clusters
+    - Close to 1:highly dense clustering
+
+***Calinski-Harabasz Index***
+
+I do not have ground truth labels (are not known), and this method can be used for clustering without ground truth labels. A higher Calinski-Harabasz score identifies a model with better defined clusters.
+
+***Davies-Bouldin Index***
+
+I do not have ground truth labels (are not known), and this method can be used for clustering without ground truth labels. A lower Davies-Bouldin index identifies a model with better separation between the clusters
 
 ### K-Means Clustering
 
+The objective of K-means clustering is to group similar data points together to find underlying patterns in the data.  Using the sklearn library for K-Means, I first identify the "n" or number of clusters using the Elbow Method, and then evaluate the performance of the algorithm.
+
 #### Determine the "n" # of clusters (Elbow Method and Kneed Library)
+Using the Elbow method of identifying "n", and the kneed library in python, I choose an "n" # of clusters of 8 for the K-Means algorithim.
+
+![KMeans_Elbow1](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/PCA_Heat_PR_2000_ST_12_4.png)KMeans_Elbow_Clustering_PR2000_1.png
 
 #### K-Means Clustering (sklearn)
 
-#### Visualize the clusters
+The K-Means algorithm with n=8 ran with 32 iterations.  The results of the algorithm (8 clusters) were plotted by components.
+
+##### Visualize the clusters
+
+The clusters are not separated or delineated, and overlap greatly.  In the first and second visualization you can see the individual groupings in the large "blob" of data points.  There is some delineation of the points into clusters, but you can also see the overlap between the clusters. A 3 dimensional graph could have given us a visual of th clusters to take the extra dimensions into account.  
+
+![Clusters1](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/KMeans_Clustering1_PR2000_Comp1_Comp2.png)
+
+![Clusters2](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/KMeans_Clustering1_PR2000_Comp1_Comp8.png)
 
 #### Visualize the clusters individually
 
+Looking at the clusters individually helped to see where they were unique and where they overlapped.  Clusters 5, 6 and 7 are very dispersed and smaller than the rest of the clusters.  Clusters 1,2,3,4 and 5 are more dense and overlap with other clusters at the edges.
+
+![Clusters3](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/PR_2000_Indv_Clusters_2.jpg)
+
 #### Performance Evaluation
+
+The K-Means algorithim had a Silouhette Coefficient performance score of 0.204 is closer to 0 than to 1.  Values of 0 mean clusters are indifferent (the distance between clusters is not significant). Values of 1 mean clusters are well distinguished and the distance is significant.
+
+The Calinski-Harabasz performance score is 7357.44.  This method is better used to compare between cluseters or methods, and the higher the score the better.
+
+The Davies-Bouldin performance score is 1.1277, and the lower the value the better the clustering.  Like the calinski-harabaz, a comparisson to clusters or methods will tell us more.
+
+![KmeansPerf1](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/PerformanceEval2_PR2000.JPG)
 
 ### Hierarchical Agglomarative Clustering (HCA)
 
