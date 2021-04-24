@@ -404,7 +404,7 @@ List of features I am interested in with high impact on PCA Clusters.
 The PCA for this smaller data set resulted in 9 components.
 ![ExpVar](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/small_pca_exvar.png)
 
-Running each of the clustering methods (K-Means, Hierarchical, and DBSCAN) identified that K-Means was the best method for clustering.
+Running each of the clustering methods (K-Means, Hierarchical, and DBSCAN) identified that K-Means was the best method for clustering with 6 clusters.
 
 Silhouette:  Closer to 1 the better
 * Best Method:  K-Means_PCA 
@@ -417,7 +417,7 @@ Davies-Bouldin:  The lower the score the better
 
 ![ExpVar](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/small_performance_all.JPG)
 
-K-Means Clustering returned 5 clusters:
+
 ![smkmeanscl](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/small_clusterplot.png)
 
 
