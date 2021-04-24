@@ -386,6 +386,41 @@ The DBSCAN and the K-Means Clustering Algorithims both identified 8 Clusters. Th
 
 ## Using K-Means Clustering - Additional Feature Configurations
 
+Having identified K-Means as the clusering method that worked best with this dataset, I want to look specifically at identifying a cluster of homes that meet the criteria my family is looking for.  There are features that are important to us that were also had a high impact on the PCA components.
+
+List of features I am interested in with high impact on PCA Clusters.
+* Total_Garage_SF
+* Total_Finished_Basement_SF
+* Built_as_SF
+* No_of_Bedrooms
+* No_of_Bathrooms
+* Total_Net_Acres
+* Quality_ord
+* Condition_ord
+* Actual_Value
+
+![CorrMatrix](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/CoorelationMatrix.png)
+
+The PCA for this smaller data set resulted in 9 components.
+![ExpVar](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/small_pca_exvar.png)
+
+Running each of the clustering methods (K-Means, Hierarchical, and DBSCAN) identified that K-Means was the best method for clustering.
+
+Silhouette:  Closer to 1 the better
+* Best Method:  K-Means_PCA 
+
+Calinski-Harabasz:  The larger the score the better
+* Best Method: K-Means_PCA
+
+Davies-Bouldin:  The lower the score the better
+* Best MEthod:  K-Means_PCA
+
+![ExpVar](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/small_performance_all.JPG)
+
+K-Means Clustering returned 5 clusters:
+![smkmeanscl](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/small_clusterplot.png)
+
+
 #### Finding Homes with Big Garages
 
 
