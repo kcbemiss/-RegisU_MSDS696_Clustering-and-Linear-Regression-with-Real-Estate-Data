@@ -370,13 +370,14 @@ The second attempt using an epsilon value of 2 identified from the K-Distance gr
 The performance metrics evaluate the comparative performance of models against each other, because we are doing unsupervised clustering and do not have a target variable.
 
  Silhouette:  Closer to 1 the better
-     - Best Method:  DBSCAN_PCA 
+ * Best Method:  DBSCAN_PCA 
 
  Calinski-Harabasz:  The larger the score the better
-     - Best Method: K-Means_PCA
+ * Best Method: K-Means_PCA
 
  Davies-Bouldin:  The lower the score the better
-     - Best MEthod:  K-Means_PCA
+ * Best MEthod:  K-Means_PCA
+
 The DBSCAN and the K-Means Clustering Algorithims both identified 8 Clusters. The K-Means Algorithm has the best performance score for for 2 of the 3 methods used, so I am going to choose that method to continue my Analysis and to peform some further clustering analysis based on specific features.
 
 ![MethodCompare](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/PerformanceEval_all_PR2000.JPG)
