@@ -8,14 +8,14 @@ Finding a homes with the features you want can be challenging, especially with a
 
 The data used for this project came from the Douglas County Assessor Office (Douglas County Assessor Office, 2021).  Seven (7) data files were downloaded from the assessors website as text files and contained both categorical and continuous data. Using unsupervised learning this project created clusters of properties with geocoded locations to identify properties and their locations with similarities over a large number of features.  PCA was used for feature reduction, and unsupervised clustering was performed using k-means, hierarchical agglomerative clustering (HCA) and Density-Based Spatial Clustering of Applications with Noise (DBSCAN) using scikit-learn libraries.  
 
-The project is broken into 5 different Juypter Notebooks:
+The project is broken into 4 different Juypter Notebooks:
 * Data Collection, Cleaning and EDA (Jupyter Notebook: MSDS696_Practicum2_1b_AssessorsData_PCA_Clustering_BemissKimberly)
 * Clustering 1 - Records with Built Year >= 2000 (Jupyter Notebook:  MSDS696_Practicum2_1c_AssessorsData_PCA_Clustering_BemissKimberly)
 * Clustering 2 - Decreased features, Built Year >= 2000 (Jupyter Notebook: MSDS696_Practicum2_1d_AssessorsData_PCA_Clustering_BemissKimberly)
 * Clustering 2 - Deacreased features, Built Year >= 2000 & Garage Size >= 690 SF (Jupyter Notebook: MSDS696_Practicum2_1d_AssessorsData_PCA_Clustering_BemissKimberly)
 * Geocoding and Regression - Deacreased features, Built Year >= 2000 & Garage Size >= 690 SF (Jupyter Notebook: MSDS696_Practicum2_1e_AssessorsData_PCA_Clustering_BemissKimberly)
 
-A 6th notebook (MSDS696_Practicum2_1a_AssessorsData_PCA_Clustering_BemissKimberly) contains code for web scraping Real Estate website Realtor.com.  Due to techical issues, this piece of the project was abandoned in the interest of the time limit for this project.  
+A 5th notebook (MSDS696_Practicum2_1a_AssessorsData_PCA_Clustering_BemissKimberly) contains code for web scraping Real Estate website Realtor.com.  Due to techical issues, this piece of the project was abandoned in the interest of the time limit for this project.  
 
 The conclusion of the project is publicly availble assessors data can be clustered into groups that are defined by specific features and value ranges.  Multiple Linear Regression in this project was able to somewhat predict an assessors "actual value" for a property, but not at a level that I would use for any real life application.  While I was able to identify two clusters of properties that met my specific criteria, unsupervised clustering didn't perform as well as I had hoped.  Another clustering method, perhaps supervised, might have better performance and identify clusters that are better defined and have less overlap between points.  
 
