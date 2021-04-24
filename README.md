@@ -480,6 +480,43 @@ The individual plots of the clusters help to visualize where each cluster shares
 
 ## Geo-Coding and Mapping Property Clusters
 
+To better visualize the culsters, an feature of location was added by geocoding the address of the property and using Tableau to map each property.
+
+The guidance for this section of the project was found from towardsdatascience.com and shanelynn.ie.
+* https://towardsdatascience.com/pythons-geocoding-convert-a-list-of-addresses-into-a-map-f522ef513fd6
+* https://towardsdatascience.com/geocode-with-python-161ec1e62b89
+* https://www.shanelynn.ie/batch-geocoding-in-python-with-google-geocoding-api/
+
+### Data Prep:
+
+Taking the data output from clustering the property data (garage SF >= 690), the location data is joined using the row index that was tracked through each step.
+
+**DataFrame** (df_geo_start):  Rows (15815), Columns (34)
+
+**GeoCoding**
+
+An list of addresses (Loc_Full_Address, index) was created and formated to send to the Google Maps GeoCoding API
+* Base address: https://maps.googleapis.com/maps/api/geocode/json?
+* AUTH_KEY = API key assigned by Google Maps
+
+After testing a few addresses to make sure that the connection to the google API was successfull and returned the data that was expected.
+* Lat (latitude)
+* Lng (longitude)
+* formated_address
+
+A function was defined to combine each of the steps:
+* using the library urllib, create a base URL to send to the API.
+* using the requests library, request the geocode information from google.
+* using the json library, extract the lat, lng and formated address information from the returned information.
+
+Using a for loop - the full list of 15,815 properties is passed to the google API and a list of the results is created.
+
+A dataframe was created from the list of geocode information and compared to the original list.  A few (7) of the addresses did not return a geocode.  Using the index value, the missing index values were identified from the orignial list. The missing values were then passed to the google API and the geocode information was obtained for the missing records, which were added to the dataframe of geocoded information.
+
+To creat a map, Tableau was used.  The dataframe was written to a csv file, which was then used as the datasource for Tableau.
+
+![sfr_map2](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/SFR_Cluster_Map2.jpg)
+
 
 ## Multi-Linear Regression
 
