@@ -261,7 +261,7 @@ The clustering analysis is performed on the filtered data for the built year 200
 
 ***The Silhouette Coefficient***
 
-I do not have ground truth labels (are not known), and this method can be used for clustering without ground truth labels. A higher Silhouette Coefficient score identifies a model with better defined clusters.
+This method can be used for clustering without ground truth labels. A higher Silhouette Coefficient score identifies a model with better defined clusters.
 
     - Close to -1:incorrect clustering
     - Close to 0: overlapping clusters
@@ -269,11 +269,11 @@ I do not have ground truth labels (are not known), and this method can be used f
 
 ***Calinski-Harabasz Index***
 
-I do not have ground truth labels (are not known), and this method can be used for clustering without ground truth labels. A higher Calinski-Harabasz score identifies a model with better defined clusters.
+This method can be used for clustering without ground truth labels. A higher Calinski-Harabasz score identifies a model with better defined clusters.
 
 ***Davies-Bouldin Index***
 
-I do not have ground truth labels (are not known), and this method can be used for clustering without ground truth labels. A lower Davies-Bouldin index identifies a model with better separation between the clusters
+This method can be used for clustering without ground truth labels. A lower Davies-Bouldin index identifies a model with better separation between the clusters
 
 ### K-Means Clustering
 
