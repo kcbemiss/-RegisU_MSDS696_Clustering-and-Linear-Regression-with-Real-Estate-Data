@@ -529,41 +529,39 @@ The last piece of the project, and one of our goals was to predict an actual hom
 
 The data was plotted using a correlation plot and a pairs plot to determine which features to use in MLR.
 
-[MLR_coorplot](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/CoorMatrix_MLR.png)
+![MLRcoorplot](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/CoorMatrix_MLR.png)
+
+Selection of pairs:
+![MLRscatters](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/MLR_scatters.png)
+
 
 4 features were selected - and set as "X"
-* Built_as_SF
-* Total_Garage_SF
-* Total_Finished_Basement_SF
-* Quality_ord
+* Built_as_SF (red)
+* Total_Garage_SF (blue)
+* Total_Finished_Basement_SF (magenta)
+* Quality_ord (light blue)
 
-Y was set as our variable we wanted predicted "Actual Value".
+The target Y variable to be predicted is "Actual Value".
 
-The data was then split into test and train datasets with a test size of 0.2.
+#### Multiple Linear Regression with SKLearn
 
-Using the linear_model.LinearRegression() from sklearn, the model was fit using the training data set.  To test the model, a single set of values was provided. 
-
-#### prediction with sklearn - Train
-* New_Built_as_SF = 2566
-* New_Total_Garage_SF = 750
-* New_Total_Finished_Basement_SF = 1098
-* New_Quality_ord = 4
-* Predicted Actual Value: [553008.67123638]
+The data was split into test and train datasets with a test size of 0.2.  Using the linear_model.LinearRegression() from sklearn, the model was fit using the training data set. 
 
 #### prediction with sklearn - Test
-Using the sklearn model to predict Actual Value resulted in a model with an **R2** value of 0.686 for the train data.
 
-The prediction on the TEST data resulted in an **R2** f 0.72, an **RMSE** of 150949.72, and an **MSE** of 22785818757.88.
+Using the sklearn model to predict Actual Value resulted in the following results:
 
-The prediction against the full dataset resulted in an **R2** of 0.70, an **RMSE** of 164848.67, and an **MSE** of 27175083255.38.
-
-**R2**:   R Square is a relative measure of how well the model fits dependent variables.
-
-**RMSE/MSE**:  Mean Square Error is an absolute measure of the goodness for the fit.
+Measure | Train Data  |  Test Data      |  Full Data      | Measure Description                               |
+--------|-------------|-----------------|-----------------|-------------------------------------------------- |
+R2      | 0.686       |  0.72           | 0.70            | how well the model fits the depenent (y) variable |
+RMSE    |             |  150949.72      | 164848.67       | absolute measure of goodness of fit               |
+MSE     |             |  22785818757.88 |  27175083255.38 | absolute measure of goodness of fit               |
 
 [PredvsAbs](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/Actual vs Predicted.png)
 
 [PredvsAb_scatter](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/MLR_ScatterCompare.png)
+
+
 
 ## Conclusions and Findings
 
