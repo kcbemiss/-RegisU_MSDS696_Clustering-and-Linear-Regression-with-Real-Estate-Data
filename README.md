@@ -557,9 +557,9 @@ R2      | 0.686       |  0.72           | 0.70            | how well the model f
 RMSE    |             |  150949.72      | 164848.67       | absolute measure of goodness of fit               |
 MSE     |             |  22785818757.88 |  27175083255.38 | absolute measure of goodness of fit               |
 
-[PredvsAbs](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/Actual_vs_Predicted.png)
+![PredvsAbs](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/Actual_vs_Predicted.png)
 
-[PredvsAb_scatter](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/MLR_ScatterCompare.png)
+![PredvsAb_scatter](https://github.com/kcbemiss/RegisU_MSDS696_ClusteringAndLinearRegressionWithRealEstateData/blob/main/Images/MLR_ScatterCompare.png)
 
 
 
