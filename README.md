@@ -4,7 +4,7 @@
 
 ## Abstract
 
-Finding a homes with the features you want can be challenging, especially with a market that has low volume. My family is in the process of looking for a new home in an area we are not familiar with, and we could use some help narrowing down the options!  The goal of the project was to use publicly available assessor's data and data from an online real estate site to identify properties that met specific home feature criteria and predict an actual home value.
+Finding a homes with the features you want can be challenging, especially with a market that has low volume. My family is in the process of looking for a new home in an area we are not familiar with, and we could use some help narrowing down the options!  The goal of the project was to use publicly available assessor's data and data from an online real estate site to identify properties that met specific home feature criteria and predict an actual assessed home value.
 
 The data used for this project came from the Douglas County Assessor Office (Douglas County Assessor Office, 2021).  Seven (7) data files were downloaded from the assessors website as text files and contained both categorical and continuous data. Using unsupervised learning this project created clusters of properties with geocoded locations to identify properties and their locations with similarities over a large number of features.  PCA was used for feature reduction, and unsupervised clustering was performed using k-means, hierarchical agglomerative clustering (HCA) and Density-Based Spatial Clustering of Applications with Noise (DBSCAN) using scikit-learn libraries.  
 
@@ -564,11 +564,51 @@ MSE     |             |  22785818757.88 |  27175083255.38 | absolute measure of 
 
 
 ## Conclusions and Findings
+The goal of the project was to use publicly available assessor's data and data from an online real estate site to identify properties that met specific home feature criteria and predict an actual assessed home value.  The unsupervised clustering using K-Means from sklearn performed with an Silhouette Score of 0.33 and an Davies-Boudin of 1.08.  The Silhouette score was above 0 telling me that there were overlapping clusters that had some density to them.  I was pleased that the score was above 0 and not negative.  The clustering was able to identify properites by square footage (built and finsihed basement), bedrooms, bathrooms, and quality of build.  Using Multi-linear regression, the R2 value of 0.70 (for 4 features) for the full data set was lower than I had hoped and further analysis of features to identify those best for predicting an assessed value would be an additional step I would take.  
 
+The conclusion of the project is publicly availble assessors data can be clustered into groups that are defined by specific features and value ranges.  Multiple Linear Regression in this project was able to somewhat predict an assessors "actual value" for a property, but not at a level that I would use for any real life application.  While I was able to identify two clusters of properties that met my specific criteria, unsupervised clustering didn't perform as well as I had hoped.  Another clustering method, perhaps supervised, might have better performance and identify clusters that are better defined and have less overlap between points.  
 
+#### Description of Clusters:
 
+**Cluster 1 (First):  Smaller Homes with Bigger Finsheed Basements**
+* Medium Acreage: These properties have a more medium Total Net Acres (Average of 2 Net Acres)
+* Small Square Footage:  These properties have an Avarage Built as square footage under 2800 SF
+* Large Finished Basement: This cluster has the largest Average Square Footage of finished basements.
+* Bathrooms: This cluster has home with 3 or less Bathrooms
+* Bedrooms: This cluster has homes with 4 or Less Bedrooms
+* Quality: Medium to High (High Average Quality)
 
+**Cluster 2 (Second): Medium sized Homes**
+* Small Acreage:  These properties are under a half acre on average (Average < 0.5 Net Acres)
+* Medium Square Footage:  These properties have an Avarage Built as square footage around 3000 SF, and Avereage Total SF of 3500.
+* Small Finished Basement: This cluster has Average Square Footage of finished basements around 500 SF.
+* Bathrooms:  This cluster has home with 2 to 5 Bathrooms
+* Bedroom:  This cluster has bedrooms ranging from 1 to 6
+* Quality: Medium to Low (Medium Average Quality)
 
+**Cluster 3 (Third): Medium to Larger sized homes**
+* Medium Acreage: These properties have a more medium Total Net Acres (Average of 1.3 Net Acres)
+* Large Square Footage:  These properties have a total square footage > 5000 SF.
+* Large Finished Basement: This cluster has Average Square Footage of finished basements over 1600 SF.
+* Bathrooms:  This cluster has home with 3 or more Bathrooms
+* Bedroom:  This cluster has bedrooms ranging from 1 to 6
+* Quality: Medium to High (Highest Average Quality)
+
+**Cluster 4 (Fourth): Medium sized Homes**
+* Small Acreage:  These properties are under a half acre on average (Average < 0.5 Net Acres)
+* Medium Square Footage:  These properties have an Avarage Built as square footage around 3000 SF, and Avereage Total SF of 3500.
+* Small Finished Basement: This cluster has Average Square Footage of finished basements around 500 SF.
+* Bathrooms:  This cluster has home with 2 to 6 Bathrooms
+* Bedroom:  This cluster has bedrooms ranging from 1 to 6
+* Quality: Medium to Low (Medium Average Quality)
+
+**Cluster 5 (Fifth):  Large Acrage Homes**
+* Large Acreage:  These properties have Much larger Total Net Acres (Avearge of 36 Net Acres).
+* Large Square Footage:  These properties have an Avarage Total square footage > 5000 SF.
+* Large Finished Basement: This cluster has Average Square Footage of finished basements over 1800 SF.
+* Bathrooms:  This cluster has home with 2 to 7 Bathrooms
+* Bedrooms: This cluster has homes with 4 or Less Bedrooms
+* Quality: Medium to High (High Average Quality)
 
 ## Reference
 
