@@ -14,7 +14,7 @@ The project is broken into 4 different Juypter Notebooks:
 * Clustering 2 - Decreased features, Built Year >= 2000 & Garage Size >= 690 SF (Jupyter Notebook: MSDS696_Practicum2_1d_AssessorsData_PCA_Clustering_BemissKimberly)
 * Geocoding and Regression- Deacreased features, Built Year >= 2000 & Garage Size >= 690 SF (Jupyter Notebook: MSDS696_Practicum2_1e_AssessorsData_PCA_Clustering_BemissKimberly)
 
-A 5th notebook (MSDS696_Practicum2_1a_AssessorsData_PCA_Clustering_BemissKimberly) contains code for web scraping Real Estate website Realtor.com.  Due to technical issues, this piece of the project was abandoned in the interest of the time limit for this project.  
+A 5th notebook (MSDS696_Practicum2_1a_AssessorsData_PCA_Clustering_BemissKimberly) contains code for web scraping Real Estate website Realtor.com.  Due to time constraints I was not able to complete this piece of the project.  
 
 The conclusion of the project is publicly available assessor's data can be clustered into groups that are defined by specific features and value ranges.  Multiple Linear Regression in this project was able to somewhat predict an assessors "actual value" for a property, but not at a level that I would use for any real life application.  While I was able to identify two clusters of properties that met my specific criteria, unsupervised clustering didn't perform as well as I had hoped.  Another clustering method, perhaps supervised, might have better performance and identify clusters that are better defined and have less overlap between points.  
 
