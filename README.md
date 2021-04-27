@@ -11,9 +11,8 @@ The data used for this project came from the Douglas County Assessor Office (Dou
 The project is broken into 4 different Juypter Notebooks:
 * Data Collection, Cleaning and EDA (Jupyter Notebook: MSDS696_Practicum2_1b_AssessorsData_PCA_Clustering_BemissKimberly)
 * Clustering 1 - Records with Built Year >= 2000 (Jupyter Notebook:  MSDS696_Practicum2_1c_AssessorsData_PCA_Clustering_BemissKimberly)
-* Clustering 2 - Decreased features, Built Year >= 2000 (Jupyter Notebook: MSDS696_Practicum2_1d_AssessorsData_PCA_Clustering_BemissKimberly)
 * Clustering 2 - Decreased features, Built Year >= 2000 & Garage Size >= 690 SF (Jupyter Notebook: MSDS696_Practicum2_1d_AssessorsData_PCA_Clustering_BemissKimberly)
-* Geocoding and Regression - Deacreased features, Built Year >= 2000 & Garage Size >= 690 SF (Jupyter Notebook: MSDS696_Practicum2_1e_AssessorsData_PCA_Clustering_BemissKimberly)
+* Geocoding and Regression- Deacreased features, Built Year >= 2000 & Garage Size >= 690 SF (Jupyter Notebook: MSDS696_Practicum2_1e_AssessorsData_PCA_Clustering_BemissKimberly)
 
 A 5th notebook (MSDS696_Practicum2_1a_AssessorsData_PCA_Clustering_BemissKimberly) contains code for web scraping Real Estate website Realtor.com.  Due to technical issues, this piece of the project was abandoned in the interest of the time limit for this project.  
 
